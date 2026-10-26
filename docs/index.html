@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When can a student pilot fly around Paris?</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--line:#e6e5e0;--card:#ffffff}
+@media (prefers-color-scheme: dark){:root{--bg:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--line:#383835;--card:#232322}}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:14px 16px 8px}h1{font-size:18px;margin:0 0 2px}header p{margin:0;color:var(--ink2);font-size:13px}
+#map{height:calc(100% - 64px);min-height:420px}
+.legend{background:var(--card);color:var(--ink);padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:12px}
+.legend .bar{display:flex;height:10px;margin:6px 0 2px;border-radius:3px;overflow:hidden}
+.legend .bar span{flex:1}.legend .ends{display:flex;justify-content:space-between;color:var(--ink2)}
+.pop h3{margin:0 0 2px;font-size:14px}.pop .big{font-size:22px;font-weight:600}.pop small{color:#52514e}
+</style></head><body>
+<header><h1>When can a student pilot fly around Paris?</h1><p>Share of daylight hours within student minimums (visibility ≥ 8 km, ceiling ≥ 2,000 ft, wind ≤ 15 kt, crosswind ≤ 10 kt on 11/29, no fog or storm), from METAR archives. Click an aerodrome.</p></header><div id="map"></div>
+<script>
+const D = {"stations": [{"icao": "LFPN", "name": "Toussus-le-Noble", "lat": 48.7519, "lon": 2.1061, "annual": 0.6572, "monthly": [0.3577, 0.4303, 0.5862, 0.7207, 0.7418, 0.7766, 0.8257, 0.8264, 0.7552, 0.6171, 0.4337, 0.3836], "n_hours": 69948, "years": "2010\u20132025", "colour": "#256abf"}, {"icao": "LFPV", "name": "V\u00e9lizy-Villacoublay", "lat": 48.7742, "lon": 2.2017, "annual": 0.6832, "monthly": [0.3587, 0.5101, 0.6197, 0.7546, 0.7505, 0.8213, 0.8669, 0.8496, 0.7719, 0.6315, 0.467, 0.3553], "n_hours": 35116, "years": "2018\u20132025", "colour": "#184f95"}, {"icao": "LFPO", "name": "Paris-Orly", "lat": 48.7233, "lon": 2.3794, "annual": 0.6646, "monthly": [0.4176, 0.52, 0.614, 0.7175, 0.6811, 0.7887, 0.8116, 0.8007, 0.7221, 0.6431, 0.4931, 0.4284], "n_hours": 35187, "years": "2018\u20132025", "colour": "#256abf"}, {"icao": "LFPG", "name": "Paris-Charles-de-Gaulle", "lat": 49.0097, "lon": 2.5479, "annual": 0.5917, "monthly": [0.3321, 0.4214, 0.5394, 0.6308, 0.6117, 0.7349, 0.7462, 0.7345, 0.6664, 0.5571, 0.4279, 0.3301], "n_hours": 35208, "years": "2018\u20132025", "colour": "#cde2fb"}, {"icao": "LFPB", "name": "Paris-Le Bourget", "lat": 48.9694, "lon": 2.4414, "annual": 0.6913, "monthly": [0.4293, 0.5236, 0.633, 0.733, 0.7637, 0.8178, 0.8493, 0.8434, 0.7692, 0.6405, 0.4975, 0.4294], "n_hours": 34665, "years": "2018\u20132025", "colour": "#0d366b"}, {"icao": "LFPT", "name": "Pontoise-Cormeilles", "lat": 49.0967, "lon": 2.0408, "annual": 0.6965, "monthly": [0.2686, 0.5507, 0.6898, 0.731, 0.716, 0.8168, 0.8672, 0.8781, 0.6257, 0.6284, 0.4041, 0.304], "n_hours": 7409, "years": "2018\u20132025", "colour": "#0d366b"}, {"icao": "LFPM", "name": "Melun-Villaroche", "lat": 48.6047, "lon": 2.6711, "annual": 0.6891, "monthly": [0.3896, 0.521, 0.6476, 0.7849, 0.781, 0.8196, 0.8469, 0.8287, 0.7653, 0.6203, 0.4514, 0.3532], "n_hours": 34566, "years": "2018\u20132025", "colour": "#0d366b"}, {"icao": "LFOB", "name": "Beauvais-Till\u00e9", "lat": 49.4544, "lon": 2.1128, "annual": 0.6325, "monthly": [0.3627, 0.4214, 0.5692, 0.6768, 0.6898, 0.762, 0.8117, 0.7751, 0.7125, 0.5961, 0.4688, 0.3382], "n_hours": 35197, "years": "2018\u20132025", "colour": "#6da7ec"}, {"icao": "LFOE", "name": "\u00c9vreux-Fauville", "lat": 49.0287, "lon": 1.2199, "annual": 0.6511, "monthly": [0.3943, 0.4464, 0.566, 0.7164, 0.7322, 0.7768, 0.8197, 0.8183, 0.7176, 0.6049, 0.4564, 0.3562], "n_hours": 35150, "years": "2018\u20132025", "colour": "#3987e5"}, {"icao": "LFOJ", "name": "Orl\u00e9ans-Bricy", "lat": 47.9878, "lon": 1.7606, "annual": 0.5901, "monthly": [0.2982, 0.4325, 0.5052, 0.6246, 0.6266, 0.7499, 0.7853, 0.7642, 0.6811, 0.5152, 0.3948, 0.3085], "n_hours": 35084, "years": "2018\u20132025", "colour": "#cde2fb"}], "home": {"icao": "LFPZ", "name": "Saint-Cyr-l'\u00c9cole", "lat": 48.8114, "lon": 2.0747, "runway": [110, 290]}, "lo": 0.5901, "hi": 0.6965, "ramp": ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]};
+const map = L.map('map', {scrollWheelZoom: true}).setView([D.home.lat, D.home.lon], 8);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 13}).addTo(map);
+const M = 'JFMAMJJASOND';
+function bars(m){const w=12,h=46,max=1;let s=`<svg width="${12*w}" height="${h+14}" role="img" aria-label="Monthly share of flyable hours">`;
+  m.forEach((v,i)=>{const bh=Math.max(1,v/max*h);s+=`<rect x="${i*w+1}" y="${h-bh}" width="${w-3}" height="${bh}" rx="2" fill="#2a78d6"><title>${M[i]}: ${(v*100).toFixed(0)}%</title></rect><text x="${i*w+w/2-1}" y="${h+11}" font-size="9" text-anchor="middle" fill="#52514e">${M[i]}</text>`});
+  return s+'</svg>';}
+D.stations.forEach(s=>{
+  const best = s.monthly.indexOf(Math.max(...s.monthly)), worst = s.monthly.indexOf(Math.min(...s.monthly));
+  const html = `<div class="pop"><h3>${s.name} <small>${s.icao}</small></h3>
+    <div class="big">${(s.annual*100).toFixed(0)}%</div><small>of daylight hours within student minimums (${s.years})</small><br>
+    ${bars(s.monthly)}<br><small>Best ${'January February March April May June July August September October November December'.split(' ')[best]}
+    (${(s.monthly[best]*100).toFixed(0)}%), worst ${'January February March April May June July August September October November December'.split(' ')[worst]}
+    (${(s.monthly[worst]*100).toFixed(0)}%)</small></div>`;
+  L.circleMarker([s.lat, s.lon], {radius: 11, color: '#fcfcfb', weight: 2, fillColor: s.colour, fillOpacity: 0.95})
+    .addTo(map).bindPopup(html).bindTooltip(`${s.icao} · ${(s.annual*100).toFixed(0)}%`, {direction: 'top'});
+});
+L.marker([D.home.lat, D.home.lon]).addTo(map).bindPopup(`<div class="pop"><h3>${D.home.name} <small>${D.home.icao}</small></h3><small>Home field. No METAR: Toussus-le-Noble (LFPN) is used as reference.</small></div>`);
+const lg = L.control({position: 'bottomright'});
+lg.onAdd = () => {const d = L.DomUtil.create('div', 'legend');
+  d.innerHTML = `Share of flyable daylight hours<div class="bar">${D.ramp.map(c=>`<span style="background:${c}"></span>`).join('')}</div>
+  <div class="ends"><span>${(D.lo*100).toFixed(0)}%</span><span>${(D.hi*100).toFixed(0)}%</span></div>`; return d;};
+lg.addTo(map);
+</script></body></html>
