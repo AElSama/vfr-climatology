@@ -1,0 +1,407 @@
+{
+  "data": {
+    "source": "Iowa Environmental Mesonet METAR archive",
+    "reference": "LFPN",
+    "home": "LFPZ",
+    "years": "2010-2025",
+    "hours_observed_daylight": 69948,
+    "metar_coverage": 0.992
+  },
+  "minima": {
+    "student": {
+      "name": "Student minimums",
+      "vis_m": 8000,
+      "ceiling_ft": 2000,
+      "wind_kt": 15,
+      "gust_kt": 20,
+      "crosswind_kt": 10,
+      "block_wx": [
+        "TS",
+        "FG",
+        "FZ",
+        "SN",
+        "GR",
+        "+"
+      ]
+    },
+    "vfr": {
+      "name": "Regulatory VFR (CTR)",
+      "vis_m": 5000,
+      "ceiling_ft": 1500,
+      "wind_kt": Infinity,
+      "gust_kt": Infinity,
+      "crosswind_kt": Infinity,
+      "block_wx": [
+        "TS",
+        "FG"
+      ]
+    }
+  },
+  "flyable_share": {
+    "student_annual": 0.657,
+    "vfr_annual": 0.809,
+    "student_by_month": {
+      "Jan": 0.358,
+      "Feb": 0.43,
+      "Mar": 0.586,
+      "Apr": 0.721,
+      "May": 0.742,
+      "Jun": 0.777,
+      "Jul": 0.826,
+      "Aug": 0.826,
+      "Sep": 0.755,
+      "Oct": 0.617,
+      "Nov": 0.434,
+      "Dec": 0.384
+    },
+    "vfr_by_month": {
+      "Jan": 0.551,
+      "Feb": 0.707,
+      "Mar": 0.82,
+      "Apr": 0.892,
+      "May": 0.869,
+      "Jun": 0.877,
+      "Jul": 0.922,
+      "Aug": 0.918,
+      "Sep": 0.874,
+      "Oct": 0.777,
+      "Nov": 0.61,
+      "Dec": 0.57
+    }
+  },
+  "main_reason_by_month": {
+    "Jan": "ceiling",
+    "Feb": "ceiling",
+    "Mar": "ceiling",
+    "Apr": "crosswind",
+    "May": "ceiling",
+    "Jun": "ceiling",
+    "Jul": "ceiling",
+    "Aug": "ceiling",
+    "Sep": "ceiling",
+    "Oct": "ceiling",
+    "Nov": "ceiling",
+    "Dec": "ceiling"
+  },
+  "best_2h_slot_by_month": {
+    "Jan": {
+      "start": "15h",
+      "p": 0.307
+    },
+    "Feb": {
+      "start": "16h",
+      "p": 0.436
+    },
+    "Mar": {
+      "start": "17h",
+      "p": 0.659
+    },
+    "Apr": {
+      "start": "18h",
+      "p": 0.675
+    },
+    "May": {
+      "start": "19h",
+      "p": 0.735
+    },
+    "Jun": {
+      "start": "19h",
+      "p": 0.785
+    },
+    "Jul": {
+      "start": "19h",
+      "p": 0.833
+    },
+    "Aug": {
+      "start": "19h",
+      "p": 0.831
+    },
+    "Sep": {
+      "start": "18h",
+      "p": 0.817
+    },
+    "Oct": {
+      "start": "17h",
+      "p": 0.671
+    },
+    "Nov": {
+      "start": "15h",
+      "p": 0.418
+    },
+    "Dec": {
+      "start": "14h",
+      "p": 0.331
+    }
+  },
+  "p_saturday_or_sunday_has_slot": {
+    "Jan": 0.471,
+    "Feb": 0.528,
+    "Mar": 0.711,
+    "Apr": 0.861,
+    "May": 0.929,
+    "Jun": 0.92,
+    "Jul": 0.95,
+    "Aug": 0.922,
+    "Sep": 0.905,
+    "Oct": 0.739,
+    "Nov": 0.544,
+    "Dec": 0.423
+  },
+  "forecast_afternoon_from_7am": {
+    "target": "2h lesson 14h-16h local within student minimums",
+    "train_years": "2010-2021",
+    "test_years": "2022-2025",
+    "n_train": 4288,
+    "n_test": 1459,
+    "brier": 0.188,
+    "brier_climatology": 0.222,
+    "brier_skill": 0.153,
+    "auc": 0.787,
+    "p_afternoon_ok_if_morning_fog_or_mist": 0.464,
+    "p_afternoon_ok_otherwise": 0.547,
+    "coefficients": {
+      "log_vis": 0.095,
+      "log_ceiling": 0.229,
+      "wind_kt": -0.66,
+      "gust_kt": -0.131,
+      "spread_c": 0.034,
+      "fog": 0.023,
+      "precip": -0.172,
+      "morning_flyable": 0.061,
+      "m_cos": -0.3,
+      "m_sin": -0.171
+    }
+  },
+  "stations": [
+    {
+      "icao": "LFPN",
+      "name": "Toussus-le-Noble",
+      "lat": 48.7519,
+      "lon": 2.1061,
+      "annual": 0.6572,
+      "monthly": [
+        0.3577,
+        0.4303,
+        0.5862,
+        0.7207,
+        0.7418,
+        0.7766,
+        0.8257,
+        0.8264,
+        0.7552,
+        0.6171,
+        0.4337,
+        0.3836
+      ],
+      "n_hours": 69948,
+      "years": "2010\u20132025"
+    },
+    {
+      "icao": "LFPV",
+      "name": "V\u00e9lizy-Villacoublay",
+      "lat": 48.7742,
+      "lon": 2.2017,
+      "annual": 0.6832,
+      "monthly": [
+        0.3587,
+        0.5101,
+        0.6197,
+        0.7546,
+        0.7505,
+        0.8213,
+        0.8669,
+        0.8496,
+        0.7719,
+        0.6315,
+        0.467,
+        0.3553
+      ],
+      "n_hours": 35116,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFPO",
+      "name": "Paris-Orly",
+      "lat": 48.7233,
+      "lon": 2.3794,
+      "annual": 0.6646,
+      "monthly": [
+        0.4176,
+        0.52,
+        0.614,
+        0.7175,
+        0.6811,
+        0.7887,
+        0.8116,
+        0.8007,
+        0.7221,
+        0.6431,
+        0.4931,
+        0.4284
+      ],
+      "n_hours": 35187,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFPG",
+      "name": "Paris-Charles-de-Gaulle",
+      "lat": 49.0097,
+      "lon": 2.5479,
+      "annual": 0.5917,
+      "monthly": [
+        0.3321,
+        0.4214,
+        0.5394,
+        0.6308,
+        0.6117,
+        0.7349,
+        0.7462,
+        0.7345,
+        0.6664,
+        0.5571,
+        0.4279,
+        0.3301
+      ],
+      "n_hours": 35208,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFPB",
+      "name": "Paris-Le Bourget",
+      "lat": 48.9694,
+      "lon": 2.4414,
+      "annual": 0.6913,
+      "monthly": [
+        0.4293,
+        0.5236,
+        0.633,
+        0.733,
+        0.7637,
+        0.8178,
+        0.8493,
+        0.8434,
+        0.7692,
+        0.6405,
+        0.4975,
+        0.4294
+      ],
+      "n_hours": 34665,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFPT",
+      "name": "Pontoise-Cormeilles",
+      "lat": 49.0967,
+      "lon": 2.0408,
+      "annual": 0.6965,
+      "monthly": [
+        0.2686,
+        0.5507,
+        0.6898,
+        0.731,
+        0.716,
+        0.8168,
+        0.8672,
+        0.8781,
+        0.6257,
+        0.6284,
+        0.4041,
+        0.304
+      ],
+      "n_hours": 7409,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFPM",
+      "name": "Melun-Villaroche",
+      "lat": 48.6047,
+      "lon": 2.6711,
+      "annual": 0.6891,
+      "monthly": [
+        0.3896,
+        0.521,
+        0.6476,
+        0.7849,
+        0.781,
+        0.8196,
+        0.8469,
+        0.8287,
+        0.7653,
+        0.6203,
+        0.4514,
+        0.3532
+      ],
+      "n_hours": 34566,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFOB",
+      "name": "Beauvais-Till\u00e9",
+      "lat": 49.4544,
+      "lon": 2.1128,
+      "annual": 0.6325,
+      "monthly": [
+        0.3627,
+        0.4214,
+        0.5692,
+        0.6768,
+        0.6898,
+        0.762,
+        0.8117,
+        0.7751,
+        0.7125,
+        0.5961,
+        0.4688,
+        0.3382
+      ],
+      "n_hours": 35197,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFOE",
+      "name": "\u00c9vreux-Fauville",
+      "lat": 49.0287,
+      "lon": 1.2199,
+      "annual": 0.6511,
+      "monthly": [
+        0.3943,
+        0.4464,
+        0.566,
+        0.7164,
+        0.7322,
+        0.7768,
+        0.8197,
+        0.8183,
+        0.7176,
+        0.6049,
+        0.4564,
+        0.3562
+      ],
+      "n_hours": 35150,
+      "years": "2018\u20132025"
+    },
+    {
+      "icao": "LFOJ",
+      "name": "Orl\u00e9ans-Bricy",
+      "lat": 47.9878,
+      "lon": 1.7606,
+      "annual": 0.5901,
+      "monthly": [
+        0.2982,
+        0.4325,
+        0.5052,
+        0.6246,
+        0.6266,
+        0.7499,
+        0.7853,
+        0.7642,
+        0.6811,
+        0.5152,
+        0.3948,
+        0.3085
+      ],
+      "n_hours": 35084,
+      "years": "2018\u20132025"
+    }
+  ]
+}
